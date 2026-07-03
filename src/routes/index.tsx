@@ -92,9 +92,9 @@ function Hero() {
           </div>
           <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-border pt-8">
             {[
-              ["10k+", "Problems at launch"],
-              ["AMC · AIME", "MATHCOUNTS · HMMT"],
-              ["$0", "For every student"],
+              ["AMC", "8 · 10 · 12"],
+              ["AIME", "I & II"],
+              ["MATHCOUNTS", "Chapter → Nationals"],
             ].map(([k, v]) => (
               <div key={k}>
                 <dt className="font-display text-2xl font-semibold">{k}</dt>
@@ -102,6 +102,10 @@ function Hero() {
               </div>
             ))}
           </dl>
+          <p className="mt-6 max-w-lg text-sm text-muted-foreground">
+            Every problem is AI-generated in the style of the real contest — same flavor,
+            same difficulty curve, endless supply.
+          </p>
         </div>
 
         <div className="relative">
