@@ -14,6 +14,7 @@ function Landing() {
       <Problem />
       <How />
       <Sample />
+      <Founder />
       <Manifesto />
       <CTA />
       <Footer />
