@@ -68,13 +68,13 @@ function Hero() {
             V1 · Building in public
           </div>
           <h1 className="font-display text-5xl leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-            Adaptive practice problems.{" "}
-            <span className="whitespace-nowrap">AMC · AIME · MATHCOUNTS</span> prep,{" "}
-            <em className="italic text-amber">$0</em> for every student.
+            Competition math,{" "}
+            <em className="italic text-amber">open</em> to everyone.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            The training ground that used to live behind paywalls — adaptive problems, worked
-            solutions, and AI-guided hints for AMC, AIME, and MATHCOUNTS. Free, forever.
+            The training ground that used to live inside elite prep schools — AMC, AIME, and
+            MATHCOUNTS practice with adaptive problems, worked solutions, and AI-guided hints.
+            Free, forever.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
@@ -92,9 +92,9 @@ function Hero() {
           </div>
           <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-border pt-8">
             {[
-              ["AMC", "8 · 10 · 12"],
-              ["AIME", "I & II"],
-              ["MATHCOUNTS", "Chapter → Nationals"],
+              ["10k+", "Problems at launch"],
+              ["AMC · AIME", "MATHCOUNTS · HMMT"],
+              ["$0", "For every student"],
             ].map(([k, v]) => (
               <div key={k}>
                 <dt className="font-display text-2xl font-semibold">{k}</dt>
@@ -102,10 +102,6 @@ function Hero() {
               </div>
             ))}
           </dl>
-          <p className="mt-6 max-w-lg text-sm text-muted-foreground">
-            Every problem is AI-generated in the style of the real contest — same flavor,
-            same difficulty curve, endless supply.
-          </p>
         </div>
 
         <div className="relative">
