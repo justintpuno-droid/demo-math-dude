@@ -142,7 +142,7 @@ function Problem() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
       <div className="grid gap-12 lg:grid-cols-12">
-        <div class-placeholder />
+        
         <div className="lg:col-span-4">
           <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 01 · The gap</p>
           <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight sm:text-5xl">
