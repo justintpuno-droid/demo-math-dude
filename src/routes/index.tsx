@@ -266,6 +266,64 @@ function Sample() {
   );
 }
 
+function Founder() {
+  const creds = [
+    ["6×", "AIME Qualifier (2021–2026)"],
+    ["Perfect", "AMC 8 Score (2022) — top ~131 nationally"],
+    ["Cum Laude", "Phillips Academy Andover, 2026"],
+  ];
+  return (
+    <section id="founder" className="border-t border-border bg-secondary/40 py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <p className="font-mono text-xs uppercase tracking-widest text-amber">
+            § 04 · Who&apos;s building this
+          </p>
+          <h2 className="mt-4 font-display text-4xl tracking-tight sm:text-5xl">
+            A note from the founder.
+          </h2>
+        </div>
+        <div className="lg:col-span-8">
+          <article className="rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-paper)] sm:p-10">
+            <div className="flex items-center gap-4">
+              <div
+                aria-hidden
+                className="grid h-14 w-14 place-items-center rounded-full bg-primary font-display text-2xl text-primary-foreground"
+              >
+                JP
+              </div>
+              <div>
+                <p className="font-display text-xl">Justin Puno</p>
+                <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                  Founder · Class of 2026
+                </p>
+              </div>
+            </div>
+            <p className="mt-6 font-serif text-lg leading-relaxed text-foreground">
+              I qualified for the AIME six years running and got a perfect score on the AMC 8 in
+              2022. What I noticed along the way is that the biggest barrier to competition math
+              isn&apos;t talent — it&apos;s <em>cost</em>. Coaches, camps, and problem books add
+              up fast. Lemma is the tool I wish existed when I was starting out: unlimited
+              practice, smart hints, and clean solutions, free for anyone who wants to try a
+              hard problem.
+            </p>
+            <dl className="mt-8 grid gap-6 border-t border-border pt-6 sm:grid-cols-3">
+              {creds.map(([k, v]) => (
+                <div key={v}>
+                  <dt className="font-display text-2xl font-semibold">{k}</dt>
+                  <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+                    {v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Manifesto() {
   return (
     <section id="mission" className="border-t border-border bg-primary text-primary-foreground">
