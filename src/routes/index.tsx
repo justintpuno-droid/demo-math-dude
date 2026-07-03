@@ -142,22 +142,23 @@ function Problem() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
       <div className="grid gap-12 lg:grid-cols-12">
+        <div class-placeholder />
         <div className="lg:col-span-4">
           <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 01 · The gap</p>
           <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight sm:text-5xl">
-            A zip code shouldn&apos;t decide who learns to love a hard problem.
+            No student should be priced out of loving a hard problem.
           </h2>
         </div>
         <div className="lg:col-span-7 lg:col-start-6">
           <p className="text-lg leading-relaxed text-muted-foreground">
-            At Andover, Exeter, and a handful of magnet schools, competition math is a culture —
-            weekly practice, coaches, older students to mimic. Everywhere else, a curious kid
-            finds a PDF of last year&apos;s AMC, tries three problems alone, and quits.
+            Competition math has become an arms race of paid coaches, private classes, and
+            $2,000 summer camps. A curious kid with an internet connection can find last
+            year&apos;s AMC in a PDF, try three problems alone, and quit.
           </p>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Lemma is the coach and the practice room. It generates fresh problems at your level,
-            gives you a nudge when you&apos;re stuck, and shows the elegant solution when you&apos;re
-            done — the way a good teammate would.
+            Lemma is the coach and the practice room, free. It generates fresh problems at your
+            level, gives you a nudge when you&apos;re stuck, and shows the elegant solution
+            when you&apos;re done — the way a good teammate would.
           </p>
         </div>
       </div>
