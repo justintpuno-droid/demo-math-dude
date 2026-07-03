@@ -68,13 +68,13 @@ function Hero() {
             V1 · Building in public
           </div>
           <h1 className="font-display text-5xl leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-            Competition math,{" "}
-            <em className="italic text-amber">open</em> to everyone.
+            Adaptive practice problems.{" "}
+            <span className="whitespace-nowrap">AMC · AIME · MATHCOUNTS</span> prep,{" "}
+            <em className="italic text-amber">$0</em> for every student.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            The training ground that used to live inside elite prep schools — AMC, AIME, and
-            MATHCOUNTS practice with adaptive problems, worked solutions, and AI-guided hints.
-            Free, forever.
+            The training ground that used to live behind paywalls — adaptive problems, worked
+            solutions, and AI-guided hints for AMC, AIME, and MATHCOUNTS. Free, forever.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
