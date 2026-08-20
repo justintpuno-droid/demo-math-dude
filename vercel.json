@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/train", "destination": "https://contest-trainer.vercel.app" },
-    { "source": "/train/:path*", "destination": "https://contest-trainer.vercel.app/:path*" }
+    { "source": "/train/:path*", "destination": "https://contest-trainer.vercel.app/:path*" },
+    { "source": "/api/:path*", "destination": "https://contest-trainer.vercel.app/api/:path*" }
   ]
 }
