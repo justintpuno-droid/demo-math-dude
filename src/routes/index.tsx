@@ -226,6 +226,12 @@ function Sample() {
           <p className="mt-6 text-muted-foreground">
             Every card in Lemma looks like this. Try it before you tap for a hint.
           </p>
+          
+            href="/train"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+          >
+            Try the full trainer →
+          </a>
         </div>
         <div className="lg:col-span-8">
           <article className="rounded-2xl border border-border bg-card shadow-[var(--shadow-paper)]">
