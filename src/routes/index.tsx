@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroMath from "@/assets/hero-math.jpg";
 
@@ -381,6 +381,16 @@ function CTA() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => {
+        setSubmitted(false);
+        setFeedback("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted]);
 
   return (
     <section id="feedback" className="mx-auto max-w-4xl px-6 py-24 text-center">
