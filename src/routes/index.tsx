@@ -168,26 +168,26 @@ function Problem() {
 }
 
 function How() {
-  const steps = [
+    const steps = [
     {
       k: "i",
-      title: "Calibrate",
-      body: "A short diagnostic places you on the AMC 8 → AIME ladder. No pressure, no score to publish.",
+      title: "Choose your problem",
+      body: "Pick a contest, a topic, and a difficulty — from AMC 8 warm-ups to late AIME.",
     },
     {
       k: "ii",
-      title: "Practice, one problem at a time",
-      body: "Adaptive sets on the topics you're weakest at — number theory, combinatorics, geometry, algebra.",
+      title: "Work it, timed",
+      body: "Answer on the real format — A–E bubbles or AIME three-digit entry — with a running timer for real contest pacing.",
     },
     {
       k: "iii",
-      title: "Hints, not answers",
-      body: "Stuck? A Socratic hint reveals the next step, never the whole solution. Learn the move, not the shortcut.",
+      title: "Submit your answer",
+      body: "Type in your answer and get instant feedback on whether you got it right.",
     },
     {
       k: "iv",
-      title: "Review the elegant proof",
-      body: "Every problem ends with the cleanest solution we know — often two, so you see the trick and the technique.",
+      title: "Review the solution",
+      body: "Every problem comes with a full worked solution, so you learn the technique, not just the answer.",
     },
   ];
   return (
