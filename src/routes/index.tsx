@@ -79,10 +79,10 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#waitlist"
+              href="/train"
               className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
             >
-              Get early access →
+              Try the trainer →
             </a>
             <a
               href="#sample"
