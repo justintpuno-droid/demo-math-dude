@@ -385,7 +385,7 @@ function CTA() {
 
   useEffect(() => {
     if (submitted) {
-      const fadeTimer = setTimeout(() => setFading(true), 2500);
+      const fadeTimer = setTimeout(() => setFading(true), 2000);
       const resetTimer = setTimeout(() => {
         setSubmitted(false);
         setFading(false);
@@ -410,7 +410,7 @@ function CTA() {
       </p>
       {submitted ? (
         <p
-          className={`mx-auto mt-8 max-w-md font-medium text-foreground transition-opacity duration-500 ${
+          className={`mx-auto mt-8 max-w-md font-medium text-foreground transition-opacity duration-1000 ${
             fading ? "opacity-0" : "opacity-100"
           }`}
         >
