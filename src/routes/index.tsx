@@ -91,10 +91,10 @@ function Hero() {
               See a sample problem
             </a>
           </div>
-          <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-border pt-8">
+                    <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-border pt-8">
             {[
-              ["10k+", "Problems at launch"],
-              ["AMC · AIME", "MATHCOUNTS · HMMT"],
+              ["Contest-grade", "Calibrated to real difficulty and topics"],
+              ["AMC · AIME", "MATHCOUNTS problems"],
               ["$0", "For every student"],
             ].map(([k, v]) => (
               <div key={k}>
