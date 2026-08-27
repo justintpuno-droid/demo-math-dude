@@ -91,7 +91,7 @@ function Hero() {
               See a sample problem
             </a>
           </div>
-          <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-8 border-t border-border pt-8">
+          <dl className="mt-14 grid max-w-2xl grid-cols-[auto_1fr] gap-x-12 gap-y-8 border-t border-border pt-8">
             {[
               ["AMC · AIME · MATHCOUNTS", "Contest-grade problems"],
               ["$0", "For every student"],
