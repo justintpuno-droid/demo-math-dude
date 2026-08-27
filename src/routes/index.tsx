@@ -233,34 +233,44 @@ function Sample() {
             Try the full trainer →
           </a>
         </div>
-        <div className="lg:col-span-8">
-          <article className="rounded-2xl border border-border bg-card shadow-[var(--shadow-paper)]">
-            <header className="flex items-center justify-between border-b border-border px-6 py-4">
-              <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                <span className="rounded-full bg-amber-soft/60 px-2 py-0.5 text-ink">AMC 10</span>
-                <span>Number theory · Medium</span>
-              </div>
-              <span className="font-mono text-xs text-muted-foreground">#00427</span>
-            </header>
-            <div className="rule-line px-6 py-8">
+                    <div className="rule-line px-6 py-8">
               <p className="font-serif text-xl leading-relaxed">
-                How many positive integers <em>n</em> less than{" "}
-                <span className="font-mono">1000</span> are such that{" "}
-                <span className="font-mono">n</span> and{" "}
-                <span className="font-mono">n + 1</span> are both expressible as a sum of two
-                positive squares?
+                What is the remainder when{" "}
+                <span className="font-mono">1! + 2! + 3! + ⋯ + 100!</span> is divided by{" "}
+                <span className="font-mono">1001</span>?
               </p>
+              {showSolution && (
+                <div className="mt-6 border-t border-border pt-6 font-serif text-base leading-relaxed text-muted-foreground">
+                  <p className="font-mono text-xs uppercase tracking-widest text-amber mb-3">
+                    Solution
+                  </p>
+                  <p>
+                    Since <span className="font-mono">1001 = 7 · 11 · 13</span>, every{" "}
+                    <span className="font-mono">n!</span> with{" "}
+                    <span className="font-mono">n ≥ 13</span> contains the factors 7, 11, and 13,
+                    so <span className="font-mono">n! ≡ 0 (mod 1001)</span> for all{" "}
+                    <span className="font-mono">n ≥ 13</span>. Thus the sum reduces mod 1001 to{" "}
+                    <span className="font-mono">1! + 2! + ⋯ + 12!</span>.
+                  </p>
+                  <p className="mt-3">
+                    Computing residues successively:{" "}
+                    <span className="font-mono">
+                      7! ≡ 35, 8! ≡ 280, 9! ≡ 518, 10! ≡ 175, 11! ≡ 924, 12! ≡ 77 (mod 1001)
+                    </span>
+                    , each found by multiplying the previous residue by the next integer and
+                    reducing mod 1001.
+                  </p>
+                  <p className="mt-3">
+                    Adding all residues:{" "}
+                    <span className="font-mono">
+                      1 + 2 + 6 + 24 + 120 + 720 + 35 + 280 + 518 + 175 + 924 + 77 = 2882
+                    </span>
+                    , and <span className="font-mono">2882 − 2 · 1001 = 880</span>.
+                  </p>
+                  <p className="mt-3 font-medium text-foreground">Answer: 880</p>
+                </div>
+              )}
             </div>
-            <footer className="flex flex-wrap gap-3 border-t border-border px-6 py-4">
-              <button className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90">
-                Reveal solution
-              </button>
-              <span className="ml-auto self-center font-mono text-xs text-muted-foreground">
-                ⏱ avg. 6 min
-              </span>
-            </footer>
-          </article>
-        </div>
       </div>
     </section>
   );
