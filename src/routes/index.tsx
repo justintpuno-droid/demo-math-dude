@@ -221,7 +221,7 @@ function Sample() {
         <div className="lg:col-span-4">
           <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 03 · A taste</p>
           <h2 className="mt-4 font-display text-4xl tracking-tight sm:text-5xl">
-            One problem, three ways to be helped.
+              A taste of what's inside.
           </h2>
           <p className="mt-6 text-muted-foreground">
             Every card in Lemma looks like this. Try it before you tap for a hint.
@@ -252,12 +252,6 @@ function Sample() {
               </p>
             </div>
             <footer className="flex flex-wrap gap-3 border-t border-border px-6 py-4">
-              <button className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition hover:bg-secondary">
-                Give me a nudge
-              </button>
-              <button className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition hover:bg-secondary">
-                Show first step
-              </button>
               <button className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90">
                 Reveal solution
               </button>
