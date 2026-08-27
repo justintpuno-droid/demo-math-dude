@@ -381,14 +381,20 @@ function CTA() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
+  const [fading, setFading] = useState(false);
 
   useEffect(() => {
     if (submitted) {
-      const timer = setTimeout(() => {
+      const fadeTimer = setTimeout(() => setFading(true), 2500);
+      const resetTimer = setTimeout(() => {
         setSubmitted(false);
+        setFading(false);
         setFeedback("");
       }, 3000);
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(fadeTimer);
+        clearTimeout(resetTimer);
+      };
     }
   }, [submitted]);
 
@@ -403,7 +409,11 @@ function CTA() {
         next.
       </p>
       {submitted ? (
-        <p className="mx-auto mt-8 max-w-md font-medium text-foreground">
+        <p
+          className={`mx-auto mt-8 max-w-md font-medium text-foreground transition-opacity duration-500 ${
+            fading ? "opacity-0" : "opacity-100"
+          }`}
+        >
           Thanks — got it. ✓
         </p>
       ) : (
