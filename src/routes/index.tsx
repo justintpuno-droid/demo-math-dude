@@ -379,6 +379,8 @@ function Manifesto() {
 function CTA() {
   const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   return (
     <section id="feedback" className="mx-auto max-w-4xl px-6 py-24 text-center">
@@ -396,9 +398,23 @@ function CTA() {
         </p>
       ) : (
         <form
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            setSubmitted(true);
+            setSending(true);
+            setError(false);
+            try {
+              const res = await fetch("/api/feedback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: feedback }),
+              });
+              if (!res.ok) throw new Error("failed");
+              setSubmitted(true);
+            } catch {
+              setError(true);
+            } finally {
+              setSending(false);
+            }
           }}
           className="mx-auto mt-8 flex max-w-md flex-col gap-3"
         >
@@ -416,10 +432,16 @@ function CTA() {
           />
           <button
             type="submit"
-            className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+            disabled={sending}
+            className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 disabled:opacity-50"
           >
-            Send feedback
+            {sending ? "Sending…" : "Send feedback"}
           </button>
+          {error && (
+            <p className="text-sm text-destructive">
+              Something went wrong — try again in a moment.
+            </p>
+          )}
         </form>
       )}
     </section>
