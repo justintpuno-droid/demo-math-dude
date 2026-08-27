@@ -91,13 +91,15 @@ function Hero() {
               See a sample problem
             </a>
           </div>
-          <dl className="mt-14 grid max-w-xl grid-cols-2 gap-8 border-t border-border pt-8">
+          <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-8 border-t border-border pt-8">
             {[
               ["AMC · AIME · MATHCOUNTS", "Contest-grade problems"],
               ["$0", "For every student"],
             ].map(([k, v]) => (
               <div key={k}>
-                <dt className="font-display text-2xl font-semibold">{k}</dt>
+                <dt className="whitespace-nowrap font-display text-xl font-semibold sm:text-2xl">
+                  {k}
+                </dt>
                 <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{v}</dd>
               </div>
             ))}
