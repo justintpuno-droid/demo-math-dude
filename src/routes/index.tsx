@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroMath from "@/assets/hero-math.jpg";
 
@@ -228,7 +229,7 @@ function Sample() {
           <p className="mt-6 text-muted-foreground">
             Every card in Lemma looks like this. Try it before you tap for a hint.
           </p>
-          
+          <a
             href="/train"
             className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
           >
