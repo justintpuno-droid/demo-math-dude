@@ -126,7 +126,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["AMC 8", "AMC 10", "AMC 12", "AIME", "MATHCOUNTS", "HMMT", "PUMaC", "USAMO"];
+  const items = ["AMC 8", "AMC 10", "AMC 12", "AIME", "MATHCOUNTS"];
   return (
     <div className="border-y border-border bg-secondary/60 py-5">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
