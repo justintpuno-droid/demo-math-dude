@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroMath from "@/assets/hero-math.jpg";
 
@@ -47,10 +48,10 @@ function Nav() {
           <a href="#mission" className="hover:text-foreground">Mission</a>
         </nav>
         <a
-          href="#waitlist"
+          href="/train"
           className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90"
         >
-          Join the waitlist
+          Try the trainer
         </a>
       </div>
     </header>
@@ -78,10 +79,10 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#waitlist"
+              href="/train"
               className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
             >
-              Get early access →
+              Try the trainer →
             </a>
             <a
               href="#sample"
@@ -228,7 +229,7 @@ function Sample() {
           <p className="mt-6 text-muted-foreground">
             Every card in Lemma looks like this. Try it before you tap for a hint.
           </p>
-          
+          <a
             href="/train"
             className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
           >
@@ -376,46 +377,51 @@ function Manifesto() {
 }
 
 function CTA() {
+  const [feedback, setFeedback] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
   return (
-    <section id="waitlist" className="mx-auto max-w-4xl px-6 py-24 text-center">
-      <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 05 · Join</p>
+    <section id="feedback" className="mx-auto max-w-4xl px-6 py-24 text-center">
+      <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 05 · Feedback</p>
       <h2 className="mt-4 font-display text-4xl tracking-tight sm:text-5xl">
-        Be first in the practice room.
+        Let us know what you think.
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-        We&apos;re piloting with math teams at a handful of schools this fall. Drop your email to
-        get an invite when your level opens up.
+        Building this in public. Tell us what's confusing, what's missing, or what you'd want
+        next.
       </p>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const f = e.currentTarget as HTMLFormElement;
-          const btn = f.querySelector("button")!;
-          btn.textContent = "You’re on the list ✓";
-          btn.setAttribute("disabled", "true");
-        }}
-        className="mx-auto mt-8 flex max-w-md flex-col gap-2 sm:flex-row"
-      >
-        <label htmlFor="email" className="sr-only">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          required
-          placeholder="you@school.edu"
-          className="flex-1 rounded-full border border-border bg-card px-5 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:border-amber"
-        />
-        <button
-          type="submit"
-          className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+      {submitted ? (
+        <p className="mx-auto mt-8 max-w-md font-medium text-foreground">
+          Thanks — got it. ✓
+        </p>
+      ) : (
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            setSubmitted(true);
+          }}
+          className="mx-auto mt-8 flex max-w-md flex-col gap-3"
         >
-          Request access
-        </button>
-      </form>
-      <p className="mt-4 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-        No spam. One update a month, at most.
-      </p>
+          <label htmlFor="feedback" className="sr-only">
+            Feedback
+          </label>
+          <textarea
+            id="feedback"
+            required
+            rows={4}
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)}
+            placeholder="What should we build next?"
+            className="rounded-2xl border border-border bg-card px-5 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:border-amber"
+          />
+          <button
+            type="submit"
+            className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+          >
+            Send feedback
+          </button>
+        </form>
+      )}
     </section>
   );
 }
