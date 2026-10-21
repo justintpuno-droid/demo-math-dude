@@ -1,7 +1,20 @@
 {
   "rewrites": [
-    { "source": "/train", "destination": "https://contest-trainer.vercel.app" },
-    { "source": "/train/:path*", "destination": "https://contest-trainer.vercel.app/:path*" },
-    { "source": "/api/:path*", "destination": "https://contest-trainer.vercel.app/api/:path*" }
+    {
+      "source": "/privacy",
+      "destination": "https://contest-trainer.vercel.app/privacy.html"
+    },
+    {
+      "source": "/train",
+      "destination": "https://contest-trainer.vercel.app"
+    },
+    {
+      "source": "/train/:path*",
+      "destination": "https://contest-trainer.vercel.app/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://contest-trainer.vercel.app/api/:path*"
+    }
   ]
 }

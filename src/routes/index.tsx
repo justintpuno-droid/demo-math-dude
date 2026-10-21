@@ -475,7 +475,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground sm:flex-row">
         <div className="flex items-center gap-2">
           <LemmaMark />
-          <span>© {new Date().getFullYear()} Lemma. A student project.</span>
+          <span>© {new Date().getFullYear()} Lemma. A student project. · <a href="/privacy" className="underline hover:text-foreground">Privacy policy</a></span>
         </div>
         <div className="font-mono text-xs uppercase tracking-widest">
           Made for the kid who loves problem 25.
