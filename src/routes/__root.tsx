@@ -77,25 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lemma — Competition Math, Open to Everyone" },
+      { title: "Lemma | Competition Math, Open to Everyone" },
       {
         name: "description",
         content:
-          "Free, AI-powered competition math training. AMC, AIME, and MATHCOUNTS practice with adaptive problems and Socratic hints — built to democratize access beyond elite prep schools.",
+          "Free, AI-powered competition math training. AMC, AIME, MATHCOUNTS, and MOEMS practice with adaptive problems and Socratic hints, built to open competition math beyond elite prep schools.",
       },
       { name: "author", content: "Lemma" },
-      { property: "og:title", content: "Lemma — Competition Math, Open to Everyone" },
+      { property: "og:title", content: "Lemma | Competition Math, Open to Everyone" },
       {
         property: "og:description",
         content:
-          "Free, AI-powered competition math training. Practice AMC, AIME, and MATHCOUNTS with adaptive problems and hints.",
+          "Free, AI-powered competition math training. Practice AMC, AIME, MATHCOUNTS, and MOEMS with adaptive problems and hints.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Lemma — Competition Math, Open to Everyone" },
-      { name: "description", content: "Math Leap provides AI-powered tools to democratize access to competition math resources." },
-      { property: "og:description", content: "Math Leap provides AI-powered tools to democratize access to competition math resources." },
-      { name: "twitter:description", content: "Math Leap provides AI-powered tools to democratize access to competition math resources." },
+      { name: "twitter:title", content: "Lemma | Competition Math, Open to Everyone" },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e9d055d-1692-4f89-be60-a9b8fa1160e7/id-preview-40bc2d6b--72c33f32-2b81-4475-b6f6-7ceb38e4b82d.lovable.app-1783056507698.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e9d055d-1692-4f89-be60-a9b8fa1160e7/id-preview-40bc2d6b--72c33f32-2b81-4475-b6f6-7ceb38e4b82d.lovable.app-1783056507698.png" },
     ],

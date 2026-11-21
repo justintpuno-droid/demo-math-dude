@@ -64,17 +64,13 @@ function Hero() {
       <div className="absolute inset-0 grid-paper opacity-70" aria-hidden />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:py-28">
         <div className="flex flex-col justify-center">
-          <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-            V1 · Building in public
-          </div>
           <h1 className="font-display text-5xl leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
             Competition math,{" "}
             <em className="italic text-amber">open</em> to everyone.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            The training ground that used to live inside elite prep schools — AMC, AIME, and
-            MATHCOUNTS practice with adaptive problems, worked solutions, and AI-guided hints.
+            The training ground that used to live inside elite prep schools: AMC, AIME,
+            MATHCOUNTS, and MOEMS practice with adaptive problems, worked solutions, and AI-guided hints.
             Free, forever.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -93,11 +89,11 @@ function Hero() {
           </div>
           <dl className="mt-14 grid max-w-2xl grid-cols-[auto_1fr] gap-x-12 gap-y-8 border-t border-border pt-8">
             {[
-              ["AMC · AIME · MATHCOUNTS", "Contest-grade problems"],
+              ["AMC · AIME · MATHCOUNTS · MOEMS", "Contest-grade problems"],
               ["$0", "For every student"],
             ].map(([k, v]) => (
               <div key={k}>
-                <dt className="whitespace-nowrap font-display text-xl font-semibold sm:text-2xl">
+                <dt className="font-display text-xl font-semibold sm:text-2xl">
                   {k}
                 </dt>
                 <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{v}</dd>
@@ -116,9 +112,6 @@ function Hero() {
               height={1200}
               className="h-full w-full object-cover"
             />
-            <figcaption className="absolute bottom-3 right-3 rounded-full bg-background/90 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-              Problem set · 2026
-            </figcaption>
           </figure>
         </div>
       </div>
@@ -127,7 +120,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["AMC 8", "AMC 10", "AMC 12", "AIME", "MATHCOUNTS"];
+  const items = ["AMC 8", "AMC 10", "AMC 12", "AIME", "MATHCOUNTS", "MOEMS"];
   return (
     <div className="border-y border-border bg-secondary/60 py-5">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
@@ -160,7 +153,7 @@ function Problem() {
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Lemma is the coach and the practice room, free. It generates fresh problems at your
             level, gives you a nudge when you&apos;re stuck, and shows the elegant solution
-            when you&apos;re done — the way a good teammate would.
+            when you&apos;re done, the way a good teammate would.
           </p>
         </div>
       </div>
@@ -173,12 +166,12 @@ function How() {
     {
       k: "i",
       title: "Choose your problem",
-      body: "Pick a contest, a topic, and a difficulty — from AMC 8 warm-ups to late AIME.",
+      body: "Pick a contest, a topic, and a difficulty, from AMC 8 warm-ups to late AIME.",
     },
     {
       k: "ii",
       title: "Work it, timed",
-      body: "Answer on the real format — A–E bubbles or AIME three-digit entry — with a running timer for real contest pacing.",
+      body: "Answer on the real format (A–E bubbles or AIME three-digit entry) with a running timer for real contest pacing.",
     },
     {
       k: "iii",
@@ -218,6 +211,7 @@ function How() {
 
 function Sample() {
   const [showSolution, setShowSolution] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
   return (
     <section id="sample" className="mx-auto max-w-6xl px-6 py-24">
@@ -241,7 +235,7 @@ function Sample() {
           <article className="rounded-2xl border border-border bg-card shadow-[var(--shadow-paper)]">
             <header className="flex items-center justify-between border-b border-border px-6 py-4">
               <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                <span className="rounded-full bg-amber-soft/60 px-2 py-0.5 text-ink">AMC 10</span>
+                <span className="whitespace-nowrap rounded-full bg-amber-soft/60 px-2 py-0.5 text-ink">AMC 10</span>
                 <span>Number theory · Middle (#11–20)</span>
               </div>
               <span className="font-mono text-xs text-muted-foreground">#00512</span>
@@ -252,6 +246,16 @@ function Sample() {
                 <span className="font-mono">1! + 2! + 3! + ⋯ + 100!</span> is divided by{" "}
                 <span className="font-mono">1001</span>?
               </p>
+              {showHint && !showSolution && (
+                <div className="mt-6 rounded-xl border border-border bg-secondary/50 px-5 py-4 font-serif text-base leading-relaxed text-muted-foreground">
+                  <p className="mb-2 font-mono text-xs uppercase tracking-widest text-amber">Hint</p>
+                  <p>
+                    Try factoring <span className="font-mono">1001</span>. Then ask: once{" "}
+                    <span className="font-mono">n</span> is large enough, what happens to{" "}
+                    <span className="font-mono">n!</span> modulo each of those prime factors?
+                  </p>
+                </div>
+              )}
               {showSolution && (
                 <div className="mt-6 border-t border-border pt-6 font-serif text-base leading-relaxed text-muted-foreground">
                   <p className="font-mono text-xs uppercase tracking-widest text-amber mb-3">
@@ -286,14 +290,17 @@ function Sample() {
             </div>
             <footer className="flex flex-wrap gap-3 border-t border-border px-6 py-4">
               <button
+                onClick={() => setShowHint((h) => !h)}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition hover:bg-secondary"
+              >
+                {showHint ? "Hide hint" : "Hint"}
+              </button>
+              <button
                 onClick={() => setShowSolution((s) => !s)}
                 className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90"
               >
                 {showSolution ? "Hide solution" : "Reveal solution"}
               </button>
-              <span className="ml-auto self-center font-mono text-xs text-muted-foreground">
-                ⏱ avg. 6 min
-              </span>
             </footer>
           </article>
         </div>
@@ -305,7 +312,7 @@ function Sample() {
 function Founder() {
   const creds = [
     ["6×", "AIME Qualifier (2021–2026)"],
-    ["Perfect", "AMC 8 Score (2022) — top ~131 nationally"],
+    ["Perfect", "AMC 8 Score (2022), top ~131 nationally"],
     ["Cum Laude", "Phillips Academy Andover, 2026"],
   ];
   return (
@@ -331,14 +338,14 @@ function Founder() {
               <div>
                 <p className="font-display text-xl">Justin Puno</p>
                 <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                  Founder · Class of 2026
+                  Founder
                 </p>
               </div>
             </div>
             <p className="mt-6 font-serif text-lg leading-relaxed text-foreground">
               I qualified for the AIME six years running and got a perfect score on the AMC 8 in
               2022. What I noticed along the way is that the biggest barrier to competition math
-              isn&apos;t talent — it&apos;s <em>cost</em>. Coaches, camps, and problem books add
+              isn&apos;t talent. It&apos;s <em>cost</em>. Coaches, camps, and problem books add
               up fast. Lemma is the tool I wish existed when I was starting out: unlimited
               practice, smart hints, and clean solutions, free for anyone who wants to try a
               hard problem.
@@ -364,10 +371,9 @@ function Manifesto() {
   return (
     <section id="mission" className="border-t border-border bg-primary text-primary-foreground">
       <div className="mx-auto max-w-5xl px-6 py-24 text-center">
-        <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 04 · Mission</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 05 · Mission</p>
         <blockquote className="mt-6 font-display text-3xl leading-snug tracking-tight sm:text-4xl lg:text-5xl">
-          &ldquo;The kids who&apos;ll qualify for the AIME next year already exist. Most of them
-          just haven&apos;t been handed the right problem yet.&rdquo;
+          &ldquo;Anyone can fall in love with a hard problem. They just need a place to start.&rdquo;
         </blockquote>
         <p className="mt-8 font-mono text-xs uppercase tracking-[0.3em] text-primary-foreground/60">
           Lemma is free for students. Always.
@@ -401,13 +407,12 @@ function CTA() {
 
   return (
     <section id="feedback" className="mx-auto max-w-4xl px-6 py-24 text-center">
-      <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 05 · Feedback</p>
+      <p className="font-mono text-xs uppercase tracking-widest text-amber">§ 06 · Feedback</p>
       <h2 className="mt-4 font-display text-4xl tracking-tight sm:text-5xl">
         Let us know what you think.
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-        Building this in public. Tell us what's confusing, what's missing, or what you'd want
-        next.
+        Tell us what's confusing, what's missing, or what you'd want next.
       </p>
       {submitted ? (
         <p
@@ -415,7 +420,7 @@ function CTA() {
             fading ? "opacity-0" : "opacity-100"
           }`}
         >
-          Thanks — got it. ✓
+          Thanks, got it. ✓
         </p>
       ) : (
         <form
@@ -460,7 +465,7 @@ function CTA() {
           </button>
           {error && (
             <p className="text-sm text-destructive">
-              Something went wrong — try again in a moment.
+              Something went wrong. Try again in a moment.
             </p>
           )}
         </form>
