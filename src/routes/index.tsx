@@ -212,13 +212,20 @@ function How() {
 function Sample() {
   const [showSolution, setShowSolution] = useState(false);
   const [showHint, setShowHint] = useState(false);
-  const [answer, setAnswer] = useState("");
+  const choices: [string, string][] = [
+    ["A", "77"],
+    ["B", "175"],
+    ["C", "518"],
+    ["D", "880"],
+    ["E", "924"],
+  ];
+  const [picked, setPicked] = useState<string | null>(null);
   const [verdict, setVerdict] = useState<null | "correct" | "wrong">(null);
 
   const check = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!answer.trim()) return;
-    setVerdict(answer.trim() === "880" ? "correct" : "wrong");
+    if (!picked) return;
+    setVerdict(picked === "D" ? "correct" : "wrong");
   };
 
   return (
@@ -230,7 +237,7 @@ function Sample() {
             A taste of what's inside.
           </h2>
           <p className="mt-6 text-muted-foreground">
-            Every card in Lemma looks like this. Type in an answer, or tap for a hint if you get stuck.
+            Every card in Lemma looks like this. Pick an answer, or tap for a hint if you get stuck.
           </p>
           <a
             href="/train"
@@ -254,25 +261,41 @@ function Sample() {
                 <span className="font-mono">1! + 2! + 3! + ⋯ + 100!</span> is divided by{" "}
                 <span className="font-mono">1001</span>?
               </p>
-              <form onSubmit={check} className="mt-6 flex flex-wrap items-center gap-3">
-                <label htmlFor="sample-answer" className="sr-only">
-                  Your answer
-                </label>
-                <input
-                  id="sample-answer"
-                  inputMode="numeric"
-                  autoComplete="off"
-                  value={answer}
-                  onChange={(e) => {
-                    setAnswer(e.target.value);
-                    setVerdict(null);
-                  }}
-                  placeholder="Your answer"
-                  className="w-44 rounded-full border border-border bg-background px-5 py-2 font-mono text-sm text-foreground outline-none placeholder:text-muted-foreground focus:border-amber"
-                />
+              <form onSubmit={check} className="mt-6">
+                <div role="radiogroup" aria-label="Answer choices" className="flex flex-wrap gap-3">
+                  {choices.map(([letter, value]) => (
+                    <button
+                      key={letter}
+                      type="button"
+                      role="radio"
+                      aria-checked={picked === letter}
+                      onClick={() => {
+                        setPicked(letter);
+                        setVerdict(null);
+                      }}
+                      className={`flex items-center gap-3 rounded-full border px-4 py-2 text-sm transition ${
+                        picked === letter
+                          ? "border-primary bg-secondary"
+                          : "border-border bg-background hover:bg-secondary"
+                      }`}
+                    >
+                      <span
+                        className={`grid h-6 w-6 place-items-center rounded-full border font-mono text-xs ${
+                          picked === letter
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "border-border"
+                        }`}
+                      >
+                        {letter}
+                      </span>
+                      <span className="font-mono">{value}</span>
+                    </button>
+                  ))}
+                </div>
                 <button
                   type="submit"
-                  className="rounded-full bg-amber px-5 py-2 text-sm font-medium text-ink transition hover:opacity-90"
+                  disabled={!picked}
+                  className="mt-4 rounded-full bg-amber px-5 py-2 text-sm font-medium text-ink transition hover:opacity-90 disabled:opacity-50"
                 >
                   Submit
                 </button>
@@ -287,7 +310,7 @@ function Sample() {
                   }`}
                 >
                   {verdict === "correct"
-                    ? "✓ Correct. The remainder is 880."
+                    ? "✓ Correct. The answer is (D) 880."
                     : "✗ Not quite. Try again, take a hint, or reveal the solution."}
                 </p>
               )}
@@ -329,7 +352,7 @@ function Sample() {
                     </span>
                     , and <span className="font-mono">2882 − 2 · 1001 = 880</span>.
                   </p>
-                  <p className="mt-3 font-medium text-foreground">Answer: 880</p>
+                  <p className="mt-3 font-medium text-foreground">Answer: (D) 880</p>
                 </div>
               )}
             </div>
