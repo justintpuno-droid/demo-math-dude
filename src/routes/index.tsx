@@ -313,7 +313,7 @@ function Founder() {
   const creds = [
     ["6×", "AIME Qualifier (2021–2026)"],
     ["Perfect", "AMC 8 Score (2022), top ~131 nationally"],
-    ["2×", "Top-10 at Indiana MATHCOUNTS State"],
+    ["3×", "Indiana MATHCOUNTS State team champion"],
   ];
   return (
     <section id="founder" className="border-t border-border bg-secondary/40 py-24">
