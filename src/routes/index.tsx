@@ -147,7 +147,7 @@ function Problem() {
         <div className="lg:col-span-7 lg:col-start-6">
           <p className="text-lg leading-relaxed text-muted-foreground">
             Competition math has become an arms race of paid coaches, private classes, and
-            $2,000 summer camps. A curious kid with an internet connection can find last
+            summer programs that can cost thousands of dollars. A curious kid with an internet connection can find last
             year&apos;s AMC in a PDF, try three problems alone, and quit.
           </p>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
