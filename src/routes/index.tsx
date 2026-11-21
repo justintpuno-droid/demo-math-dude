@@ -171,12 +171,12 @@ function How() {
     {
       k: "ii",
       title: "Work it, timed",
-      body: "Answer on the real format (A–E bubbles or AIME three-digit entry) with a running timer for real contest pacing.",
+      body: "Answer in the real contest format, with a running timer for real contest pacing.",
     },
     {
       k: "iii",
-      title: "Submit your answer",
-      body: "Type in your answer and get instant feedback on whether you got it right.",
+      title: "Hint, then submit",
+      body: "Stuck? Ask for a hint. Then enter your answer and get instant feedback on whether you got it right.",
     },
     {
       k: "iv",
