@@ -213,11 +213,11 @@ function Sample() {
   const [showSolution, setShowSolution] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const choices: [string, string][] = [
-    ["A", "77"],
-    ["B", "175"],
-    ["C", "518"],
-    ["D", "880"],
-    ["E", "924"],
+    ["A", "12"],
+    ["B", "24"],
+    ["C", "36"],
+    ["D", "48"],
+    ["E", "72"],
   ];
   const [picked, setPicked] = useState<string | null>(null);
   const [verdict, setVerdict] = useState<null | "correct" | "wrong">(null);
@@ -225,7 +225,7 @@ function Sample() {
   const check = (e: React.FormEvent) => {
     e.preventDefault();
     if (!picked) return;
-    setVerdict(picked === "D" ? "correct" : "wrong");
+    setVerdict(picked === "C" ? "correct" : "wrong");
   };
 
   return (
@@ -250,16 +250,15 @@ function Sample() {
           <article className="rounded-2xl border border-border bg-card shadow-[var(--shadow-paper)]">
             <header className="flex items-center justify-between border-b border-border px-6 py-4">
               <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                <span className="whitespace-nowrap rounded-full bg-amber-soft/60 px-2 py-0.5 text-ink">AMC 10</span>
-                <span>Number theory · Middle (#11–20)</span>
+                <span className="whitespace-nowrap rounded-full bg-amber-soft/60 px-2 py-0.5 text-ink">AMC 8</span>
+                <span>Algebra · Early (#1–10)</span>
               </div>
-              <span className="font-mono text-xs text-muted-foreground">#00512</span>
+              <span className="font-mono text-xs text-muted-foreground">#00023</span>
             </header>
             <div className="rule-line px-6 py-8">
               <p className="font-serif text-xl leading-relaxed">
-                What is the remainder when{" "}
-                <span className="font-mono">1! + 2! + 3! + ⋯ + 100!</span> is divided by{" "}
-                <span className="font-mono">1001</span>?
+                Maya has 3 times as many stickers as Leo. After Maya gives Leo 12 stickers, they
+                have the same number. How many stickers did Maya have at the start?
               </p>
               <form onSubmit={check} className="mt-6">
                 <div role="radiogroup" aria-label="Answer choices" className="flex flex-wrap gap-3">
@@ -310,7 +309,7 @@ function Sample() {
                   }`}
                 >
                   {verdict === "correct"
-                    ? "✓ Correct. The answer is (D) 880."
+                    ? "✓ Correct. The answer is (C) 36."
                     : "✗ Not quite. Try again, take a hint, or reveal the solution."}
                 </p>
               )}
@@ -318,9 +317,9 @@ function Sample() {
                 <div className="mt-6 rounded-xl border border-border bg-secondary/50 px-5 py-4 font-serif text-base leading-relaxed text-muted-foreground">
                   <p className="mb-2 font-mono text-xs uppercase tracking-widest text-amber">Hint</p>
                   <p>
-                    Try factoring <span className="font-mono">1001</span>. Then ask: once{" "}
-                    <span className="font-mono">n</span> is large enough, what happens to{" "}
-                    <span className="font-mono">n!</span> modulo each of those prime factors?
+                    Let Leo start with <span className="font-mono">x</span> stickers. How many does
+                    Maya start with, in terms of <span className="font-mono">x</span>? Then write what
+                    each has after the gift, and set those equal.
                   </p>
                 </div>
               )}
@@ -330,29 +329,20 @@ function Sample() {
                     Solution
                   </p>
                   <p>
-                    Since <span className="font-mono">1001 = 7 · 11 · 13</span>, every{" "}
-                    <span className="font-mono">n!</span> with{" "}
-                    <span className="font-mono">n ≥ 13</span> contains the factors 7, 11, and 13,
-                    so <span className="font-mono">n! ≡ 0 (mod 1001)</span> for all{" "}
-                    <span className="font-mono">n ≥ 13</span>. Thus the sum reduces mod 1001 to{" "}
-                    <span className="font-mono">1! + 2! + ⋯ + 12!</span>.
+                    Let Leo start with <span className="font-mono">x</span> stickers, so Maya starts
+                    with <span className="font-mono">3x</span>. After the gift, Maya has{" "}
+                    <span className="font-mono">3x − 12</span> and Leo has{" "}
+                    <span className="font-mono">x + 12</span>.
                   </p>
                   <p className="mt-3">
-                    Computing residues successively:{" "}
-                    <span className="font-mono">
-                      7! ≡ 35, 8! ≡ 280, 9! ≡ 518, 10! ≡ 175, 11! ≡ 924, 12! ≡ 77 (mod 1001)
-                    </span>
-                    , each found by multiplying the previous residue by the next integer and
-                    reducing mod 1001.
+                    Setting them equal: <span className="font-mono">3x − 12 = x + 12</span>, so{" "}
+                    <span className="font-mono">2x = 24</span> and{" "}
+                    <span className="font-mono">x = 12</span>.
                   </p>
                   <p className="mt-3">
-                    Adding all residues:{" "}
-                    <span className="font-mono">
-                      1 + 2 + 6 + 24 + 120 + 720 + 35 + 280 + 518 + 175 + 924 + 77 = 2882
-                    </span>
-                    , and <span className="font-mono">2882 − 2 · 1001 = 880</span>.
+                    Maya started with <span className="font-mono">3 · 12 = 36</span> stickers.
                   </p>
-                  <p className="mt-3 font-medium text-foreground">Answer: (D) 880</p>
+                  <p className="mt-3 font-medium text-foreground">Answer: (C) 36</p>
                 </div>
               )}
             </div>
