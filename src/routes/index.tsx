@@ -71,7 +71,7 @@ function Hero() {
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
             The training ground that used to live inside elite prep schools: AMC, AIME,
             MATHCOUNTS, and MOEMS practice with adaptive problems, worked solutions, and AI-guided hints.
-            Free, forever.
+            Free, forever, with no signup.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
@@ -87,13 +87,13 @@ function Hero() {
               See a sample problem
             </a>
           </div>
-          <dl className="mt-14 grid max-w-2xl grid-cols-[auto_1fr] gap-x-12 gap-y-8 border-t border-border pt-8">
+          <dl className="mt-14 grid max-w-2xl grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-[auto_1fr] border-t border-border pt-8">
             {[
               ["AMC · AIME · MATHCOUNTS · MOEMS", "Contest-grade problems"],
-              ["$0", "For every student"],
+              ["$0 · No signup", "Free for every student"],
             ].map(([k, v]) => (
               <div key={k}>
-                <dt className="font-display text-xl font-semibold sm:text-2xl">
+                <dt className="font-display text-xl font-semibold">
                   {k}
                 </dt>
                 <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{v}</dd>
