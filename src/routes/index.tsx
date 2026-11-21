@@ -212,6 +212,14 @@ function How() {
 function Sample() {
   const [showSolution, setShowSolution] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [answer, setAnswer] = useState("");
+  const [verdict, setVerdict] = useState<null | "correct" | "wrong">(null);
+
+  const check = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!answer.trim()) return;
+    setVerdict(answer.trim() === "880" ? "correct" : "wrong");
+  };
 
   return (
     <section id="sample" className="mx-auto max-w-6xl px-6 py-24">
@@ -222,7 +230,7 @@ function Sample() {
             A taste of what's inside.
           </h2>
           <p className="mt-6 text-muted-foreground">
-            Every card in Lemma looks like this. Try it before you tap for a hint.
+            Every card in Lemma looks like this. Type in an answer, or tap for a hint if you get stuck.
           </p>
           <a
             href="/train"
@@ -246,6 +254,43 @@ function Sample() {
                 <span className="font-mono">1! + 2! + 3! + ⋯ + 100!</span> is divided by{" "}
                 <span className="font-mono">1001</span>?
               </p>
+              <form onSubmit={check} className="mt-6 flex flex-wrap items-center gap-3">
+                <label htmlFor="sample-answer" className="sr-only">
+                  Your answer
+                </label>
+                <input
+                  id="sample-answer"
+                  inputMode="numeric"
+                  autoComplete="off"
+                  value={answer}
+                  onChange={(e) => {
+                    setAnswer(e.target.value);
+                    setVerdict(null);
+                  }}
+                  placeholder="Your answer"
+                  className="w-44 rounded-full border border-border bg-background px-5 py-2 font-mono text-sm text-foreground outline-none placeholder:text-muted-foreground focus:border-amber"
+                />
+                <button
+                  type="submit"
+                  className="rounded-full bg-amber px-5 py-2 text-sm font-medium text-ink transition hover:opacity-90"
+                >
+                  Submit
+                </button>
+              </form>
+              {verdict && (
+                <p
+                  role="status"
+                  className={`mt-4 rounded-xl border px-4 py-3 text-sm font-medium ${
+                    verdict === "correct"
+                      ? "border-border bg-secondary/60 text-foreground"
+                      : "border-destructive/40 text-destructive"
+                  }`}
+                >
+                  {verdict === "correct"
+                    ? "✓ Correct. The remainder is 880."
+                    : "✗ Not quite. Try again, take a hint, or reveal the solution."}
+                </p>
+              )}
               {showHint && !showSolution && (
                 <div className="mt-6 rounded-xl border border-border bg-secondary/50 px-5 py-4 font-serif text-base leading-relaxed text-muted-foreground">
                   <p className="mb-2 font-mono text-xs uppercase tracking-widest text-amber">Hint</p>
